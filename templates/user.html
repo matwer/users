@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap: CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <title>Create</title>
+    <title>User</title>
 </head>
 <body>
     <div class="container">
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
-                <h1 class="text-left">Add a new user</h1>
+                <h1 class="text-left">User {{ user['id'] }}</h1>
             </form>
             <a href="/users">Home</a>  
         </nav>
-        <form action="/users/create" method="POST">
-            <div class="form-group">
-                <label>First name:</label>
-                <input type="text" class="form-control" name="first_name" id="">
-            </div>
-            <div class="form-group">
-                <label>Last name:</label>
-                <input type="text" class="form-control" name="last_name" id="">
-            </div>
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" class="form-control" name="email"  id="">
-            </div>
-            <button class="btn btn-success">Create</button>
-        </form>
+        <div class="main">
+            <p>
+                Full name: {{ user['first_name'] }} {{ user['last_name'] }}
+            </p>
+            <p>
+                Email: {{ user['email'] }}
+            </p>
+            <p>
+                Created On: {{ user['created_at'] }}
+            </p>
+            <p>
+                Last Updated On: {{ user['updated_at'] }}
+            </p>
+            <p>
+                <a href="/users/{{ user['id'] }}/edit">Edit</a> |
+                <a href="/users/{{ user['id'] }}/delete">Delete</a>
+            </p>
+        </div>
     </div>
     <!-- Bootstrap: JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
